@@ -1,0 +1,16 @@
+{
+    "contents" : "plot1<-function(){\n  \n  #Please run this in the directory with the \"household_power_consumption.txt\" file.\n  \n  allData<-read.table(file=\"household_power_consumption.txt\",sep=\";\",header=TRUE)\n  \n  #convert to proper data types per column\n  allData$Global_active_power<-as.numeric(as.character(allData$Global_active_power))\n  allData$Date<-as.Date(allData$Date,format=\"%d/%m/%Y\")\n  \n  #find indices with dates of 2007-02-01 and 2007-02-02, and extract it out\n  \n  date01<-which(allData$Date==\"2007-02-01\")\n  date02<-which(allData$Date==\"2007-02-02\")\n  \n  targetData<-allData[append(date01,date02),]\n  \n  #run and save histogram\n  png(file=\"plot1.png\")\n  histPlot1<-hist(targetData$Global_active_power,col=c(2),main=\"Global Active Power\",xlab=\"Global Active Power (kilowatts)\")\n  dev.off()\n  \n  \n}",
+    "created" : 1408286757166.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1276504345",
+    "id" : "AD273F43",
+    "lastKnownWriteTime" : 1404329664,
+    "path" : "D:/Google Drive/MBA Classes/Exploratory Data Analysis - Coursera/Course Project 1/Course Project 1 - Exploratory Data Analysis/plot1.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
